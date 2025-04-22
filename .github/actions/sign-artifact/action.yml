@@ -1,0 +1,14 @@
+name: 'Sign Artifact'
+description: 'Attest given artifacts'
+inputs:
+  subject-path:
+    description: 'Path to the artifact(s) to be signed.'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Attest Build Provenance
+      uses: actions/attest-build-provenance@c074443f1aee8d4aeeae555aebba3282517141b2
+      with:
+        subject-path: ${{ inputs.subject-path }}
